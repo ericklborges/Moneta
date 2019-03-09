@@ -13,6 +13,10 @@
 		6047B2342231DAEC00B22BF8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6047B2332231DAEC00B22BF8 /* Assets.xcassets */; };
 		6047B2372231DAEC00B22BF8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6047B2352231DAEC00B22BF8 /* LaunchScreen.storyboard */; };
 		6047B2422231DAEC00B22BF8 /* MonetaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6047B2412231DAEC00B22BF8 /* MonetaTests.swift */; };
+		6047B2512234737300B22BF8 /* SnapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6047B24D2234737300B22BF8 /* SnapKit.framework */; };
+		6047B2522234737300B22BF8 /* Reusable.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6047B24E2234737300B22BF8 /* Reusable.framework */; };
+		6047B2532234737300B22BF8 /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6047B24F2234737300B22BF8 /* Realm.framework */; };
+		6047B2542234737300B22BF8 /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6047B2502234737300B22BF8 /* RealmSwift.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +40,10 @@
 		6047B23D2231DAEC00B22BF8 /* MonetaTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MonetaTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		6047B2412231DAEC00B22BF8 /* MonetaTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonetaTests.swift; sourceTree = "<group>"; };
 		6047B2432231DAEC00B22BF8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6047B24D2234737300B22BF8 /* SnapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SnapKit.framework; path = Carthage/Build/iOS/SnapKit.framework; sourceTree = "<group>"; };
+		6047B24E2234737300B22BF8 /* Reusable.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Reusable.framework; path = Carthage/Build/iOS/Reusable.framework; sourceTree = "<group>"; };
+		6047B24F2234737300B22BF8 /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Realm.framework; path = Carthage/Build/iOS/Realm.framework; sourceTree = "<group>"; };
+		6047B2502234737300B22BF8 /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RealmSwift.framework; path = Carthage/Build/iOS/RealmSwift.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -43,6 +51,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6047B2512234737300B22BF8 /* SnapKit.framework in Frameworks */,
+				6047B2522234737300B22BF8 /* Reusable.framework in Frameworks */,
+				6047B2532234737300B22BF8 /* Realm.framework in Frameworks */,
+				6047B2542234737300B22BF8 /* RealmSwift.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -62,6 +74,7 @@
 				6047B22B2231DAEB00B22BF8 /* Moneta */,
 				6047B2402231DAEC00B22BF8 /* MonetaTests */,
 				6047B22A2231DAEB00B22BF8 /* Products */,
+				6047B24C2234737200B22BF8 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -96,6 +109,17 @@
 			path = MonetaTests;
 			sourceTree = "<group>";
 		};
+		6047B24C2234737200B22BF8 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				6047B24F2234737300B22BF8 /* Realm.framework */,
+				6047B2502234737300B22BF8 /* RealmSwift.framework */,
+				6047B24E2234737300B22BF8 /* Reusable.framework */,
+				6047B24D2234737300B22BF8 /* SnapKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -106,6 +130,7 @@
 				6047B2252231DAEB00B22BF8 /* Sources */,
 				6047B2262231DAEB00B22BF8 /* Frameworks */,
 				6047B2272231DAEB00B22BF8 /* Resources */,
+				6047B2552234739300B22BF8 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -191,6 +216,30 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		6047B2552234739300B22BF8 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"$(PROJECT_DIR)/Carthage/Build/iOS/SnapKit.framework",
+				"$(PROJECT_DIR)/Carthage/Build/iOS/Reusable.framework",
+				"$(PROJECT_DIR)/Carthage/Build/iOS/Realm.framework",
+				"$(PROJECT_DIR)/Carthage/Build/iOS/RealmSwift.framework",
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/zsh;
+			shellScript = "/usr/local/bin/carthage copy-frameworks\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		6047B2252231DAEB00B22BF8 /* Sources */ = {
@@ -362,6 +411,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = HJ3JBWEJT5;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = Moneta/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -380,6 +433,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = HJ3JBWEJT5;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = Moneta/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
