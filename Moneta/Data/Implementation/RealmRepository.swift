@@ -2,7 +2,6 @@ import Foundation
 import RealmSwift
 
 class RealmRepository: LocalRepository {
-    
     private let db: Realm
     
     init() {
@@ -10,7 +9,7 @@ class RealmRepository: LocalRepository {
         self.db = try! Realm()
     }
     
-    func create<T:ConvertableToDatabase>(object: T) -> Bool {
+    func create<T:ConvertableToDatabase>(_ object: T) -> Bool {
         do {
             try db.write {
                 db.add(object.databaseModel())
@@ -22,7 +21,7 @@ class RealmRepository: LocalRepository {
         }
     }
     
-    func update<T:ConvertableToDatabase>(object: T) -> Bool {
+    func update<T:ConvertableToDatabase>(_ object: T) -> Bool {
         do {
             try db.write {
                 db.add(object.databaseModel(),update: true)
@@ -39,17 +38,22 @@ class RealmRepository: LocalRepository {
     }
     
     func get<T:ConvertableToDatabase>(_ type: T.Type, with id: String) -> T? {
-        if let object = db.object(ofType: type.DatabaseObjectType.self, forPrimaryKey: id) {
+        if let object = db.object(ofType: T.DatabaseObjectType.self, forPrimaryKey: id) {
             return T.init(object)
         } else {
             return nil
         }
     }
     
-    func delete<T:ConvertableToDatabase>(object: T) -> Bool {
+    func delete<T:ConvertableToDatabase>(_ object: T) -> Bool {
+        
+        guard let deletedObject = db.object(ofType: T.DatabaseObjectType.self, forPrimaryKey: object.id) else {
+            return false
+        }
+        
         do {
             try db.write {
-                db.delete(object.databaseModel())
+                db.delete(deletedObject)
             }
             return true
         } catch let error as NSError {

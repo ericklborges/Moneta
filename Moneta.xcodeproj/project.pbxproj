@@ -17,13 +17,15 @@
 		6047B2542234737300B22BF8 /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6047B2502234737300B22BF8 /* RealmSwift.framework */; };
 		6074CA342241579C00577FC9 /* Results+asArray.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6074CA332241579C00577FC9 /* Results+asArray.swift */; };
 		6074CA36224157D200577FC9 /* RealmRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6074CA35224157D200577FC9 /* RealmRepository.swift */; };
+		60899DC9224A590D0079A4F1 /* ExpenseRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60899DC8224A590D0079A4F1 /* ExpenseRepository.swift */; };
+		60899DCB224A5C5C0079A4F1 /* EntityRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60899DCA224A5C5C0079A4F1 /* EntityRepository.swift */; };
+		60899DCE224A5D5E0079A4F1 /* SummaryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60899DCD224A5D5E0079A4F1 /* SummaryViewController.swift */; };
+		60899DD0224A5DA90079A4F1 /* ViewCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60899DCF224A5DA90079A4F1 /* ViewCode.swift */; };
 		60A5EDF6223B36AA006FC00F /* Expense.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60A5EDF5223B36AA006FC00F /* Expense.swift */; };
 		60A5EDF8223B3763006FC00F /* ExpenseRealm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60A5EDF7223B3763006FC00F /* ExpenseRealm.swift */; };
 		60AC15772240180500A32912 /* Object+Build.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60AC15762240180500A32912 /* Object+Build.swift */; };
 		60AC157A22401E0800A32912 /* LocalRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60AC157922401E0800A32912 /* LocalRepository.swift */; };
 		60AC157E22411F9300A32912 /* ConvertableToDatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60AC157D22411F9300A32912 /* ConvertableToDatabase.swift */; };
-		60AC15892241527D00A32912 /* dbTest.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 60AC15872241527D00A32912 /* dbTest.storyboard */; };
-		60AC158A2241527D00A32912 /* dbTestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60AC15882241527D00A32912 /* dbTestViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,13 +53,15 @@
 		6047B2502234737300B22BF8 /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RealmSwift.framework; path = Carthage/Build/iOS/RealmSwift.framework; sourceTree = "<group>"; };
 		6074CA332241579C00577FC9 /* Results+asArray.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Results+asArray.swift"; sourceTree = "<group>"; };
 		6074CA35224157D200577FC9 /* RealmRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmRepository.swift; sourceTree = "<group>"; };
+		60899DC8224A590D0079A4F1 /* ExpenseRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpenseRepository.swift; sourceTree = "<group>"; };
+		60899DCA224A5C5C0079A4F1 /* EntityRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntityRepository.swift; sourceTree = "<group>"; };
+		60899DCD224A5D5E0079A4F1 /* SummaryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummaryViewController.swift; sourceTree = "<group>"; };
+		60899DCF224A5DA90079A4F1 /* ViewCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewCode.swift; sourceTree = "<group>"; };
 		60A5EDF5223B36AA006FC00F /* Expense.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Expense.swift; sourceTree = "<group>"; };
 		60A5EDF7223B3763006FC00F /* ExpenseRealm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpenseRealm.swift; sourceTree = "<group>"; };
 		60AC15762240180500A32912 /* Object+Build.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Object+Build.swift"; sourceTree = "<group>"; };
 		60AC157922401E0800A32912 /* LocalRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalRepository.swift; sourceTree = "<group>"; };
 		60AC157D22411F9300A32912 /* ConvertableToDatabase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConvertableToDatabase.swift; sourceTree = "<group>"; };
-		60AC15872241527D00A32912 /* dbTest.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = dbTest.storyboard; path = ../../../Desktop/dbTest.storyboard; sourceTree = "<group>"; };
-		60AC15882241527D00A32912 /* dbTestViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = dbTestViewController.swift; path = ../../../Desktop/dbTestViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,14 +108,14 @@
 		6047B22B2231DAEB00B22BF8 /* Moneta */ = {
 			isa = PBXGroup;
 			children = (
-				60AC15872241527D00A32912 /* dbTest.storyboard */,
-				60AC15882241527D00A32912 /* dbTestViewController.swift */,
 				6047B22C2231DAEB00B22BF8 /* AppDelegate.swift */,
 				6047B2332231DAEC00B22BF8 /* Assets.xcassets */,
 				6047B2352231DAEC00B22BF8 /* LaunchScreen.storyboard */,
 				6047B2382231DAEC00B22BF8 /* Info.plist */,
 				60AC157822401D6E00A32912 /* Data */,
 				60A5EDF2223B3684006FC00F /* Model */,
+				6074CA392241624900577FC9 /* View */,
+				6074CA3A2241624D00577FC9 /* Controller */,
 				60AC1575224017F200A32912 /* Extension */,
 			);
 			path = Moneta;
@@ -135,6 +139,22 @@
 				6047B24D2234737300B22BF8 /* SnapKit.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		6074CA392241624900577FC9 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				60899DCF224A5DA90079A4F1 /* ViewCode.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		6074CA3A2241624D00577FC9 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				60899DCD224A5D5E0079A4F1 /* SummaryViewController.swift */,
+			);
+			path = Controller;
 			sourceTree = "<group>";
 		};
 		60A5EDF2223B3684006FC00F /* Model */ = {
@@ -185,6 +205,7 @@
 			isa = PBXGroup;
 			children = (
 				60AC157922401E0800A32912 /* LocalRepository.swift */,
+				60899DCA224A5C5C0079A4F1 /* EntityRepository.swift */,
 			);
 			path = Protocol;
 			sourceTree = "<group>";
@@ -193,6 +214,7 @@
 			isa = PBXGroup;
 			children = (
 				6074CA35224157D200577FC9 /* RealmRepository.swift */,
+				60899DC8224A590D0079A4F1 /* ExpenseRepository.swift */,
 			);
 			path = Implementation;
 			sourceTree = "<group>";
@@ -280,7 +302,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				6047B2372231DAEC00B22BF8 /* LaunchScreen.storyboard in Resources */,
-				60AC15892241527D00A32912 /* dbTest.storyboard in Resources */,
 				6047B2342231DAEC00B22BF8 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -326,11 +347,14 @@
 				60AC15772240180500A32912 /* Object+Build.swift in Sources */,
 				60AC157E22411F9300A32912 /* ConvertableToDatabase.swift in Sources */,
 				60A5EDF8223B3763006FC00F /* ExpenseRealm.swift in Sources */,
-				60AC158A2241527D00A32912 /* dbTestViewController.swift in Sources */,
+				60899DD0224A5DA90079A4F1 /* ViewCode.swift in Sources */,
+				60899DCE224A5D5E0079A4F1 /* SummaryViewController.swift in Sources */,
+				60899DCB224A5C5C0079A4F1 /* EntityRepository.swift in Sources */,
 				60A5EDF6223B36AA006FC00F /* Expense.swift in Sources */,
 				60AC157A22401E0800A32912 /* LocalRepository.swift in Sources */,
 				6047B22D2231DAEB00B22BF8 /* AppDelegate.swift in Sources */,
 				6074CA342241579C00577FC9 /* Results+asArray.swift in Sources */,
+				60899DC9224A590D0079A4F1 /* ExpenseRepository.swift in Sources */,
 				6074CA36224157D200577FC9 /* RealmRepository.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
