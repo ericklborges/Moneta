@@ -1,7 +1,7 @@
 import Foundation
 import RealmSwift
 
-class ExpenseRealm: Object {
+class TransactionRealm: Object {
     
     @objc dynamic var id: String = ""
     @objc dynamic var date: Date = Date(timeIntervalSince1970: 1)

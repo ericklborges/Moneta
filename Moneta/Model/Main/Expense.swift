@@ -1,6 +1,6 @@
 import Foundation
 
-struct Expense {
+struct Transaction {
     
     let id: String
     var date: Date
@@ -18,15 +18,15 @@ struct Expense {
     
 }
 
-extension Expense: ConvertableToDatabase {
-    typealias DatabaseObjectType = ExpenseRealm
+extension Transaction: ConvertableToDatabase {
+    typealias DatabaseObjectType = TransactionRealm
     
-    init(_ expenseRealm: DatabaseObjectType) {
-        id = expenseRealm.id
-        date = expenseRealm.date
-        title = expenseRealm.title
-        value = expenseRealm.value
-        account = expenseRealm.account
+    init(_ databaseObjectType: DatabaseObjectType) {
+        id = databaseObjectType.id
+        date = databaseObjectType.date
+        title = databaseObjectType.title
+        value = databaseObjectType.value
+        account = databaseObjectType.account
     }
     
     func databaseModel() -> DatabaseObjectType {

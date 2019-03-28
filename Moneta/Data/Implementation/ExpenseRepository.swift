@@ -8,8 +8,8 @@
 
 import Foundation
 
-class ExpenseRepository: EntityRepository {
-    typealias Entity = Expense
+class TransactionRepository: EntityRepository {
+    typealias Entity = Transaction
     
     private let localRepository: LocalRepository
     
