@@ -22,12 +22,12 @@ struct Wallet {
         self.balance = limit
     }
     
-    public func dailySuggestedTransactionValue() -> Double {
+    public func dailyValue() -> Double {
         return balance / daysLeft()
     }
     
     public func daysLeft() -> Double {
-        return Double(endDate.dayValue() - startDate.dayValue())
+        return Double(endDate.dayInEra() - startDate.dayInEra())
     }
     
     public func totalTransactionsValue() -> Double {
