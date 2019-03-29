@@ -47,7 +47,6 @@ extension Wallet: ConvertableToDatabase {
         self.startDate = databaseObjectType.startDate
         self.endDate = databaseObjectType.endDate
         self.transactions = databaseObjectType.transactions.map { Transaction($0) }
-        self.balance = databaseObjectType.balance
     }
     
     func databaseModel() -> DatabaseObjectType {
@@ -58,7 +57,6 @@ extension Wallet: ConvertableToDatabase {
             build.startDate = startDate
             build.endDate = endDate
             build.transactions.append(objectsIn: transactions.map { $0.databaseModel() })
-            build.balance = balance
         })
     }
     

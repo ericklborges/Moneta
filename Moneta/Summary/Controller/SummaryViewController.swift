@@ -1,7 +1,6 @@
 import UIKit
 
-class SummaryViewController: UIViewController {
-    
+class SummaryViewController: UIViewController {    
 }
 
 extension SummaryViewController: ViewCode {
