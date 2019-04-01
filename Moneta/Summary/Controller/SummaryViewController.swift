@@ -3,7 +3,7 @@ import SnapKit
 
 class SummaryViewController: UIViewController {
     
-    var currentWallet: Wallet!
+    var currentWallet: Wallet
     
     lazy var mainCard: MainCard = {
         let mainCard = MainCard(wallet: currentWallet)
@@ -11,15 +11,23 @@ class SummaryViewController: UIViewController {
         return mainCard
     }()
     
+    //MARK: Life Cycle
+    override init(nibName nibNameOrNil: String? = nil , bundle nibBundleOrNil: Bundle? = nil) {
+        currentWallet = Wallet(limit: 840, label: "Abril", startDate: Date(), endDate: Date(timeIntervalSinceNow: 60*60*24*30))
+        super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     override func viewDidLoad() {
         setup()
     }
 
+    
+    //MARK: Setup
     func setup() {
-        currentWallet = Wallet(limit: 840,
-                               label: "Abril",
-                               startDate: Date(),
-                               endDate: Date(timeIntervalSinceNow: 60*60*24*30))
         setupView()
     }
     
