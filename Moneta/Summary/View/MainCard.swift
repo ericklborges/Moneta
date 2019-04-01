@@ -15,19 +15,26 @@ class MainCard: UIView {
     
     lazy var balanceLabel: UILabel = {
         let label = UILabel()
+        label.numberOfLines = 1
+        label.textAlignment = .center
         label.font = TextStyle.highlightBig.uiFont()
         label.textColor = Color.offWihte.uiColor()
-        label.textAlignment = .center
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
     
+    lazy var dailyValueLabelContainerView: UIView = {
+        let view = UIView()
+        view.backgroundColor = Color.highlightBackground.uiColor()
+        return view
+    }()
+    
     lazy var dailyValueLabel: UILabel = {
         let label = UILabel()
+        label.numberOfLines = 0
+        label.textAlignment = .center
         label.font = TextStyle.detail.uiFont()
         label.textColor = Color.highlight.uiColor()
-        label.backgroundColor = Color.highlightBackground.uiColor()
-        label.textAlignment = .center
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
@@ -37,6 +44,10 @@ class MainCard: UIView {
     var wallet: Wallet
     
     //MARK: Life Cycle
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("MainCard.init(coder:) has not been implemented")
+    }
+    
     init(with title: String = "Saldo", wallet: Wallet) {
         self.title = title
         self.wallet = wallet
@@ -44,9 +55,6 @@ class MainCard: UIView {
         setup()
     }
     
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("MainCard.init(coder:) has not been implemented")
-    }
     
     override func layoutSubviews() {
         super.layoutSubviews()
@@ -57,7 +65,12 @@ class MainCard: UIView {
     func setup() {
         setupTitleLabel()
         setupBalanceLabel()
-        setupdailyValueLabel()
+        setupDailyValueLabel()
+    }
+    
+    private func setupDesing() {
+        backgroundColor = Color.darkBackground.uiColor()
+        layer.cornerRadius = 5
     }
     
     private func setupTitleLabel() {
@@ -68,13 +81,8 @@ class MainCard: UIView {
         balanceLabel.text = "R$ 840,00"
     }
     
-    private func setupdailyValueLabel() {
+    private func setupDailyValueLabel() {
         dailyValueLabel.text = "R$ 840,00 / dia"
-    }
-    
-    private func setupDesing() {
-        backgroundColor = Color.darkBackground.uiColor()
-        layer.cornerRadius = 5
     }
 
 }
@@ -83,7 +91,8 @@ extension MainCard: ViewCode {
     internal func buildViewHierarchy() {
         addSubview(titleLabel)
         addSubview(balanceLabel)
-        addSubview(dailyValueLabel)
+        addSubview(dailyValueLabelContainerView)
+        dailyValueLabelContainerView.addSubview(dailyValueLabel)
     }
     
     internal func setupConstraints() {
@@ -101,11 +110,17 @@ extension MainCard: ViewCode {
             make.width.equalToSuperview().inset(margin*2)
         }
         
-        dailyValueLabel.snp.makeConstraints { (make) in
+        dailyValueLabelContainerView.snp.makeConstraints { (make) in
             make.top.equalTo(balanceLabel.snp.bottom).offset(margin)
             make.bottom.equalToSuperview().inset(margin)
             make.centerX.equalToSuperview()
             make.width.greaterThanOrEqualToSuperview().multipliedBy(0.2)
+        }
+        
+        dailyValueLabel.snp.makeConstraints { (make) in
+            make.left.equalToSuperview().offset(margin)
+            make.right.equalToSuperview().inset(margin)
+            make.centerX.centerY.equalToSuperview()
         }
         
     }

@@ -14,12 +14,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        
         let window = UIWindow(frame: UIScreen.main.bounds)
-        
         let vc = SummaryViewController()
-        let navigationController = UINavigationController()
+        let navigationController = CustomNavigationController()
         navigationController.viewControllers = [vc]
-        
         window.rootViewController = navigationController
         self.window = window
         
