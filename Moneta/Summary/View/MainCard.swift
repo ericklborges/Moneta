@@ -55,7 +55,6 @@ class MainCard: UIView {
         setup()
     }
     
-    
     override func layoutSubviews() {
         super.layoutSubviews()
         setupView()
@@ -82,7 +81,7 @@ class MainCard: UIView {
     }
     
     private func setupDailyValueLabel() {
-        dailyValueLabel.text = "R$ 840,00 / dia"
+        dailyValueLabel.text = "R$ 840,00/dia"
     }
 
 }

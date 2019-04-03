@@ -6,14 +6,14 @@ struct Transaction {
     var date: Date
     var title: String
     var value: Double
-    var account: String
+    var origin: String
     
-    init(date: Date, title: String, value: Double, account: String) {
+    init(date: Date, title: String, value: Double, origin: String) {
         self.id = UUID().uuidString
         self.date = date
         self.title = title
         self.value = value
-        self.account = account
+        self.origin = origin
     }
     
 }
@@ -26,7 +26,7 @@ extension Transaction: ConvertableToDatabase {
         date = databaseObjectType.date
         title = databaseObjectType.title
         value = databaseObjectType.value
-        account = databaseObjectType.account
+        origin = databaseObjectType.origin
     }
     
     func databaseModel() -> DatabaseObjectType {
@@ -35,7 +35,7 @@ extension Transaction: ConvertableToDatabase {
             build.date = date
             build.title = title
             build.value = value
-            build.account = account
+            build.origin = origin
         }
 
     }

@@ -9,20 +9,17 @@ class SummaryViewController: UIViewController {
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
     }()
-    
     lazy var mainCard: MainCard = {
         let mainCard = MainCard(wallet: currentWallet)
         mainCard.translatesAutoresizingMaskIntoConstraints = false
         return mainCard
     }()
-    
     lazy var tableViewTitleContainerView: UIView = {
         let view = UIView()
         view.backgroundColor = Color.highlightBackground.uiColor()
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
-    
     lazy var tableViewTitleLabel: UILabel = {
         let label = UILabel()
         label.font = TextStyle.titleSmall.uiFont()
@@ -31,6 +28,10 @@ class SummaryViewController: UIViewController {
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
+    
+    var transactionTableView = TransactionTableView()
+    var transactionTableViewDelegate: TransactionTableViewDelegate?
+    var transactionTableViewDatasource: TransactionTableViewDatasource?
     
     //MARK: Properties
     var currentWallet: Wallet
@@ -55,8 +56,9 @@ class SummaryViewController: UIViewController {
         setupView()
         setupDesign()
         setupTableViewTitle()
+        setupTransactionTableView()
     }
-
+    
     func setupDesign() {
         view.backgroundColor = .white
     }
@@ -64,6 +66,14 @@ class SummaryViewController: UIViewController {
     func setupTableViewTitle() {
         tableViewTitleLabel.text = "Transações"
     }
+    
+    func setupTransactionTableView() {
+        transactionTableViewDelegate = TransactionTableViewDelegate()
+        transactionTableView.delegate = transactionTableViewDelegate
+        transactionTableViewDatasource = TransactionTableViewDatasource(currentWallet.transactions, tableView: transactionTableView)
+        transactionTableView.dataSource = transactionTableViewDatasource
+    }
+    
 }
 
 extension SummaryViewController: ViewCode {
@@ -72,6 +82,7 @@ extension SummaryViewController: ViewCode {
         view.addSubview(mainCard)
         view.addSubview(tableViewTitleContainerView)
         tableViewTitleContainerView.addSubview(tableViewTitleLabel)
+        view.addSubview(transactionTableView)
     }
     
     func setupConstraints() {
@@ -99,6 +110,11 @@ extension SummaryViewController: ViewCode {
             make.left.equalToSuperview().offset(margin)
             make.right.equalToSuperview().inset(margin)
             make.centerY.equalToSuperview()
+        }
+        
+        transactionTableView.snp.makeConstraints { (make) in
+            make.bottom.left.right.equalToSuperview()
+            make.top.equalTo(tableViewTitleContainerView.snp.bottom)
         }
         
     }
