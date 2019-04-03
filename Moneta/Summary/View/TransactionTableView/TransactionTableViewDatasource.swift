@@ -21,13 +21,12 @@ class TransactionTableViewDatasource: NSObject, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return transactions.count + 10
+        return transactions.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(for: indexPath, cellType: TransactionTableViewCell.self)
-        let transaction = Transaction(date: Date(), title: "Almoço", value: 33.54, origin: "Crédito Nubank")
-        cell.setup(with: transaction)
+        cell.setup(with: transactions[indexPath.row])
         return cell
     }
 

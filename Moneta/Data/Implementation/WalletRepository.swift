@@ -1,7 +1,7 @@
 import Foundation
 
-class TransactionRepository: EntityRepository {
-    typealias Entity = Transaction
+class WalletRepository: EntityRepository {
+    typealias Entity = Wallet
     
     private let localRepository: LocalRepository
     

@@ -28,13 +28,13 @@ class SummaryViewController: UIViewController {
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
-    
     var transactionTableView = TransactionTableView()
     var transactionTableViewDelegate: TransactionTableViewDelegate?
     var transactionTableViewDatasource: TransactionTableViewDatasource?
     
     //MARK: Properties
     var currentWallet: Wallet
+    var walletRepository = WalletRepository()
 
     //MARK: Life Cycle
     required init?(coder aDecoder: NSCoder) {
@@ -42,7 +42,7 @@ class SummaryViewController: UIViewController {
     }
     
     override init(nibName nibNameOrNil: String? = nil , bundle nibBundleOrNil: Bundle? = nil) {
-        currentWallet = Wallet(limit: 840, label: "Abril", startDate: Date(), endDate: Date(timeIntervalSinceNow: 60*60*24*30))
+        currentWallet = walletRepository.getAll().last!
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
     }
     
