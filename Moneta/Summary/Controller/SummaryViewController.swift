@@ -68,12 +68,24 @@ class SummaryViewController: UIViewController {
     }
     
     func setupTransactionTableView() {
-        transactionTableViewDelegate = TransactionTableViewDelegate()
+        transactionTableViewDelegate = TransactionTableViewDelegate(delegate: self)
         transactionTableView.delegate = transactionTableViewDelegate
         transactionTableViewDatasource = TransactionTableViewDatasource(currentWallet.transactions, tableView: transactionTableView)
         transactionTableView.dataSource = transactionTableViewDatasource
     }
     
+}
+
+extension SummaryViewController: TransactionSelectionDelegate {
+    func didSelectAddTransaction() {
+        //code
+        print("didSelectAddTransaction")
+    }
+    
+    func didSelect(_ transaction: Transaction) {
+        //code
+        print(transaction)
+    }
 }
 
 extension SummaryViewController: ViewCode {

@@ -57,6 +57,7 @@ class TransactionTableViewCell: UITableViewCell, Reusable {
     }
     
     func setupDesign() {
+        selectionStyle = .none
         backgroundColor = .clear
     }
     

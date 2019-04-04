@@ -14,6 +14,7 @@ class TransactionTableView: UITableView {
     func setupDesing() {
         backgroundColor = .clear
         separatorStyle = .none
+        
     }
     
 }
