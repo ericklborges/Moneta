@@ -9,7 +9,6 @@ class MainCard: UIView {
         label.font = TextStyle.detail.uiFont()
         label.textColor = Color.titleText.uiColor()
         label.textAlignment = .center
-        label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
     
@@ -19,7 +18,6 @@ class MainCard: UIView {
         label.textAlignment = .center
         label.font = TextStyle.highlightBig.uiFont()
         label.textColor = Color.offWihte.uiColor()
-        label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
     
@@ -35,7 +33,6 @@ class MainCard: UIView {
         label.textAlignment = .center
         label.font = TextStyle.detail.uiFont()
         label.textColor = Color.highlight.uiColor()
-        label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
     

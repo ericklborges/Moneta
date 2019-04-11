@@ -6,18 +6,15 @@ class SummaryViewController: UIViewController {
     //MARK: UI Elements
     lazy var backgroundImage: UIImageView = {
         let imageView = UIImageView(image: UIImage(named: "Background"))
-        imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
     }()
     lazy var mainCard: MainCard = {
         let mainCard = MainCard(wallet: currentWallet)
-        mainCard.translatesAutoresizingMaskIntoConstraints = false
         return mainCard
     }()
     lazy var tableViewTitleContainerView: UIView = {
         let view = UIView()
         view.backgroundColor = Color.highlightBackground.uiColor()
-        view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
     lazy var tableViewTitleLabel: UILabel = {
@@ -25,7 +22,6 @@ class SummaryViewController: UIViewController {
         label.font = TextStyle.titleSmall.uiFont()
         label.textColor = Color.titleText.uiColor()
         label.textAlignment = .left
-        label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
     var transactionTableView = TransactionTableView()
@@ -46,6 +42,12 @@ class SummaryViewController: UIViewController {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        loadCurrentWallet()
+        setupTransactionTableView(with: currentWallet.transactions)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setup()
@@ -56,7 +58,7 @@ class SummaryViewController: UIViewController {
         setupView()
         setupDesign()
         setupTableViewTitle()
-        setupTransactionTableView()
+        setupTransactionTableView(with: currentWallet.transactions)
     }
     
     func setupDesign() {
@@ -67,27 +69,34 @@ class SummaryViewController: UIViewController {
         tableViewTitleLabel.text = "Transações"
     }
     
-    func setupTransactionTableView() {
+    func setupTransactionTableView(with transactions: [Transaction]) {
         transactionTableViewDelegate = TransactionTableViewDelegate(delegate: self)
         transactionTableView.delegate = transactionTableViewDelegate
-        transactionTableViewDatasource = TransactionTableViewDatasource(currentWallet.transactions, tableView: transactionTableView)
+        transactionTableViewDatasource = TransactionTableViewDatasource(transactions, tableView: transactionTableView)
         transactionTableView.dataSource = transactionTableViewDatasource
+        transactionTableView.reloadData()
+    }
+    
+    func loadCurrentWallet() {
+        currentWallet = walletRepository.getAll().last!
     }
     
 }
 
+//MARK: - TransactionSelectionDelegate
 extension SummaryViewController: TransactionSelectionDelegate {
     func didSelectAddTransaction() {
-        //code
-        print("didSelectAddTransaction")
+        let vc = AddTransactionViewController(wallet: currentWallet)
+        navigationController?.pushViewController(vc, animated: true)
     }
     
     func didSelect(_ transaction: Transaction) {
-        //code
-        print(transaction)
+        let vc = AddTransactionViewController(transaction: transaction)
+        navigationController?.pushViewController(vc, animated: true)
     }
 }
 
+//MARK: - ViewCode
 extension SummaryViewController: ViewCode {
     func buildViewHierarchy() {
         view.addSubview(backgroundImage)

@@ -9,7 +9,6 @@ class TransactionTableViewCell: UITableViewCell, Reusable {
         let label = UILabel()
         label.font = TextStyle.titleSmall.uiFont()
         label.textColor = Color.titleText.uiColor()
-        label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
     
@@ -17,7 +16,6 @@ class TransactionTableViewCell: UITableViewCell, Reusable {
         let label = UILabel()
         label.font = TextStyle.amountOfMoney.uiFont()
         label.textColor = Color.moneyText.uiColor()
-        label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
     
@@ -25,7 +23,6 @@ class TransactionTableViewCell: UITableViewCell, Reusable {
         let label = UILabel()
         label.font = TextStyle.detail.uiFont()
         label.textColor = Color.detailText.uiColor()
-        label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
     
@@ -33,7 +30,6 @@ class TransactionTableViewCell: UITableViewCell, Reusable {
         let label = UILabel()
         label.font = TextStyle.detail.uiFont()
         label.textColor = Color.detailText.uiColor()
-        label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
     
@@ -64,7 +60,7 @@ class TransactionTableViewCell: UITableViewCell, Reusable {
     func setupLabelsContents() {
         if let transaction = transaction {
             titleLabel.text = transaction.title
-            valueLabel.text = "R$\(transaction.value)"
+            valueLabel.text = transaction.value.asCurrency()
             dateLabel.text = transaction.date.asString()
             originLabel.text = transaction.origin
         }

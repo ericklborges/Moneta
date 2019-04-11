@@ -9,7 +9,6 @@ class AddTransactionTableViewCell: UITableViewCell, Reusable {
         label.textAlignment = .center
         label.font = TextStyle.titleSmall.uiFont()
         label.textColor = Color.highlight.uiColor()
-        label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
     
